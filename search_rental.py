@@ -8,7 +8,7 @@ column_name = ['Version','Area','Property Type','Usage','Project','Property Size
 
 values = {'Ejari Contract Number':0,'Registration Date':0,'Start Date':0,'End Date':0,'Property ID':0,'Version':'None','Area':'None','Contract Amount':0,'Annual Amount':0,'Is Free Hold?':'None','Property Size (sq.m)':0,'Property Size (sq.ft)':0,'Amount (sq.m)':0,'Amount (sq.ft)':0,'Property Type':'None','Property Sub Type':'None','Number of Rooms':'None','Usage':'None','Parking':'None','No of Units':'None','Master Project':'None','Project':'None'}
 
-table = pq.read_table('C:\\Users\\yousu\\Desktop\\Python Projects\\Flask Website\\raw_rental_data.parquet')
+table = pq.read_table('raw_rental_data.parquet')
 raw_data = table.to_pandas().reset_index(level=0, drop=True)
 raw_data['Start Date'] = pd.to_datetime(raw_data['Start Date'], format='%Y-%m-%d')
 
@@ -43,7 +43,7 @@ def search(search_value,column_name):
     matching_rows = raw_data[mask]
     matching_rows = matching_rows.loc[(matching_rows['Start Date'] >= search_value[7])]
     matching_rows.fillna(value = values, inplace=True)
-    matching_rows.to_csv('C:\\Users\\yousu\\Desktop\\Python Projects\\Flask Website\\rental_results.csv', index=False)
+    matching_rows.to_csv('rental_results.csv', index=False)
     return matching_rows
 
 def change(value):

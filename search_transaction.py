@@ -7,7 +7,7 @@ search_value = ['', '', 'Capital Bay  A', 'Business Bay', 'Residential', 'Unit',
 column_name = ['Transaction Type', 'Registration type', 'Project', 'Area', 'Usage', 'Property Type', 'Property Sub Type', 'Room(s)', 'Property Size (sq.ft)', 'Property Size (sq.m)']
 
 # Read the CSV file into a DataFrame
-table = pq.read_table('C:\\Users\\yousu\\Desktop\\Python Projects\\Flask Website\\raw_transaction_data.parquet')
+table = pq.read_table('raw_transaction_data.parquet')
 matches = table.to_pandas().reset_index(level=0, drop=True)
 
 matches['Transaction Date'] = pd.to_datetime(matches['Transaction Date'], format='%Y-%m-%d')
@@ -63,7 +63,7 @@ def search(search_value, column_name):
     #matching_rows = matching_rows.loc[(matching_rows['Transaction Date'] >= search_value[10])]
     #matching_rows.fillna(value = 0, inplace=True)
     matching_rows.style.format("{:.2f}")
-    matching_rows.to_csv('C:\\Users\\yousu\\Desktop\\Python Projects\\Flask Website\\transaction_results.csv', index=False)
+    matching_rows.to_csv('transaction_results.csv', index=False)
     return matching_rows
 '''    print(matching_rows)
     matching_rows.to_csv('results.csv', index=False)'''
