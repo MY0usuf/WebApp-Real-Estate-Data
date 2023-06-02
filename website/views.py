@@ -125,8 +125,8 @@ def rental():
 
 @views.route('/return_transaction_file')
 def return_transaction_file():
-    return send_file('C:\\Users\\yousu\\Desktop\\Python Projects\\Flask Website\\transaction_results.csv',as_attachment=True)
+    return send_file('transaction_results.csv',as_attachment=True)
 
 @views.route('/return_rental_file')
 def return_rental_file():
-    return send_file('C:\\Users\\yousu\\Desktop\\Python Projects\\Flask Website\\rental_results.csv',as_attachment=True)
+    return send_file('rental_results.csv',as_attachment=True)
